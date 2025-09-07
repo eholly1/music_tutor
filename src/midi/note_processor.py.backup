@@ -1,0 +1,515 @@
+"""
+MIDI Note Processor
+
+Converts raw MIDI data to musical note representations.
+Phase 2.2 implementation with real MIDI message processing.
+"""
+
+import time
+from typing import List, Optional, Tuple
+from dataclasses import dataclass
+from utils.logger import get_logger
+
+
+@dataclass
+class MIDINote:
+    """Represents a MIDI note event"""
+    pitch: int          # MIDI note number (0-127)
+    velocity: int       # Velocity (0-127)
+    timestamp: float    # Timestamp in seconds
+    duration: Optional[float] = None  # Note duration in seconds
+    
+    def __str__(self) -> str:
+        """String representation of the note"""
+        note_names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+        octave = (self.pitch // 12) - 1
+        note_name = note_names[self.pitch % 12]
+        duration_str = f", {self.duration:.3f}s" if self.duration else ""
+        return f"{note_name}{octave} (MIDI {self.pitch}, vel={self.velocity}{duration_str})"
+
+
+class NoteProcessor:
+    """
+    Processes MIDI events and converts them to musical note data
+    
+    This class handles:
+    - Converting MIDI note on/off events to note objects
+    - Calculating note durations
+    - Filtering and cleaning MIDI data
+    - Detecting phrase boundaries
+    """
+    
+    # MIDI message types
+    NOTE_OFF = 0x80
+    NOTE_ON = 0x90
+    CONTROL_CHANGE = 0xB0
+    PROGRAM_CHANGE = 0xC0
+    PITCH_BEND = 0xE0
+    
+    def __init__(self):
+        """Initialize note processor"""
+        self.logger = get_logger()
+        self.active_notes = {}  # Track note on events: {pitch: (velocity, timestamp)}
+        self.completed_notes = []  # List of completed MIDINote objects
+        self.session_start_time = None  # Will be set on first MIDI event
+        self.logger.info("Note Processor initialized for real-time MIDI processing")
+    
+    def process_midi_event(self, message: List[int], timestamp: float) -> Optional[MIDINote]:
+        """
+        Process a raw MIDI message
+        
+        Args:
+            message: Raw MIDI message as list [status, data1, data2, ...]
+            timestamp: Message timestamp in seconds
+            
+        Returns:
+            MIDINote: Completed note object or None if note is still active
+        """
+        try:
+            if not message or len(message) < 1:
+                return None
+            
+            # Initialize session start time on first event
+            if self.session_start_time is None:
+                self.session_start_time = timestamp
+                self.logger.info("Started new MIDI recording session")
+            
+            status_byte = message[0]
+            message_type = status_byte & 0xF0  # Upper 4 bits
+            channel = status_byte & 0x0F       # Lower 4 bits
+            
+            # Convert timestamp to session-relative time
+            session_timestamp = timestamp - self.session_start_time
+            
+            # Handle note messages
+            if message_type == self.NOTE_ON and len(message) >= 3:
+                return self._handle_note_on(message[1], message[2], session_timestamp)
+            
+            elif message_type == self.NOTE_OFF and len(message) >= 3:
+                return self._handle_note_off(message[1], message[2], session_timestamp)
+            
+            elif message_type == self.CONTROL_CHANGE and len(message) >= 3:
+                self._handle_control_change(message[1], message[2], channel)
+                
+            elif message_type == self.PROGRAM_CHANGE and len(message) >= 2:
+                self._handle_program_change(message[1], channel)
+                
+            elif message_type == self.PITCH_BEND and len(message) >= 3:
+                self._handle_pitch_bend(message[1], message[2], channel)
+            
+            else:
+                self.logger.debug(f"Unhandled MIDI message type: {hex(message_type)}")
+            
+            return None
+            
+        except Exception as e:
+            self.logger.error(f"Error processing MIDI event {message}: {e}")
+            return None
+    
+    def _handle_note_on(self, pitch: int, velocity: int, timestamp: float) -> Optional[MIDINote]:
+        """
+        Handle MIDI note on event
+        
+        Args:
+            pitch: MIDI note number (0-127)
+            velocity: Note velocity (0-127)
+            timestamp: Event timestamp
+            
+        Returns:
+            MIDINote: Completed note if this is a note off (velocity 0), else None
+        """
+        # Validate timestamp
+        if timestamp is None:
+            self.logger.error(f"Invalid timestamp for note on: {timestamp}")
+            return None
+            
+        if velocity == 0:
+            # Note on with velocity 0 is equivalent to note off
+            return self._handle_note_off(pitch, 0, timestamp)
+        
+        # Check if this note is already active (shouldn't happen normally)
+        if pitch in self.active_notes:
+            self.logger.warning(f"Note {pitch} already active, replacing previous note on")
+        
+        # Store the note on event
+        self.active_notes[pitch] = (velocity, timestamp)
+        self.logger.debug(f"Note ON: {self._pitch_to_name(pitch)} (MIDI {pitch}, vel={velocity})")
+        
+        return None
+    
+    def _handle_note_off(self, pitch: int, velocity: int, timestamp: float) -> Optional[MIDINote]:
+        """
+        Handle MIDI note off event
+        
+        Args:
+            pitch: MIDI note number (0-127)
+            velocity: Release velocity (0-127)
+            timestamp: Event timestamp
+            
+        Returns:
+            MIDINote: Completed note object or None if note wasn't active
+        """
+        if pitch not in self.active_notes:
+            self.logger.debug(f"Note OFF for inactive note: {pitch}")
+            return None
+        
+        # Get the note on information
+        note_on_velocity, note_on_timestamp = self.active_notes[pitch]
+        
+        # Validate timestamps
+        if note_on_timestamp is None or timestamp is None:
+            self.logger.error(f"Invalid timestamps: note_on={note_on_timestamp}, note_off={timestamp}")
+            # Remove from active notes and skip
+            del self.active_notes[pitch]
+            return None
+        
+        # Calculate duration
+        duration = timestamp - note_on_timestamp
+        
+        # Create completed note
+        completed_note = MIDINote(
+            pitch=pitch,
+            velocity=note_on_velocity,
+            timestamp=note_on_timestamp,
+            duration=duration
+        )
+        
+        # Remove from active notes
+        del self.active_notes[pitch]
+        
+        # Add to completed notes list
+        self.completed_notes.append(completed_note)
+        
+        self.logger.debug(f"Note OFF: {completed_note}")
+        
+        return completed_note
+    
+    def _handle_control_change(self, controller: int, value: int, channel: int) -> None:
+        """Handle MIDI control change messages"""
+        self.logger.debug(f"Control Change: CC{controller}={value} on channel {channel}")
+    
+    def _handle_program_change(self, program: int, channel: int) -> None:
+        """Handle MIDI program change messages"""
+        self.logger.debug(f"Program Change: {program} on channel {channel}")
+    
+    def _handle_pitch_bend(self, lsb: int, msb: int, channel: int) -> None:
+        """Handle MIDI pitch bend messages"""
+        bend_value = (msb << 7) | lsb
+        self.logger.debug(f"Pitch Bend: {bend_value} on channel {channel}")
+    
+    def _pitch_to_name(self, pitch: int) -> str:
+        """Convert MIDI pitch number to note name"""
+        note_names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+        octave = (pitch // 12) - 1
+        note_name = note_names[pitch % 12]
+        return f"{note_name}{octave}"
+    
+    def get_active_notes(self) -> List[int]:
+        """
+        Get list of currently active note pitches
+        
+        Returns:
+            List[int]: List of active MIDI note numbers
+        """
+        return list(self.active_notes.keys())
+    
+    def finalize_notes(self) -> List[MIDINote]:
+        """
+        Finalize any active notes and return complete note list
+        
+        Returns:
+            List[MIDINote]: List of completed notes
+        """
+        current_time = time.time()
+        if self.session_start_time is not None:
+            session_time = current_time - self.session_start_time
+        else:
+            session_time = 0
+        
+        # Finalize any notes that are still active
+        for pitch, (velocity, timestamp) in self.active_notes.items():
+            duration = session_time - timestamp
+            completed_note = MIDINote(
+                pitch=pitch,
+                velocity=velocity,
+                timestamp=timestamp,
+                duration=duration
+            )
+            self.completed_notes.append(completed_note)
+            self.logger.debug(f"Finalized active note: {completed_note}")
+        
+        # Clear active notes
+        self.active_notes.clear()
+        
+        # Return copy of completed notes
+        notes = self.completed_notes.copy()
+        self.completed_notes.clear()
+        
+        self.logger.info(f"Finalized {len(notes)} notes")
+        return notes
+    
+    def reset_session(self) -> None:
+        """Reset the processor for a new session"""
+        self.active_notes.clear()
+        self.completed_notes.clear()
+        self.session_start_time = None
+        self.logger.info("Note processor session reset")
+
+import time
+from typing import List, Optional, Dict, Tuple
+from dataclasses import dataclass
+from utils.logger import get_logger
+
+
+@dataclass
+class MIDINote:
+    """Represents a MIDI note event"""
+    pitch: int          # MIDI note number (0-127)
+    velocity: int       # Velocity (0-127)
+    timestamp: float    # Timestamp in seconds
+    duration: Optional[float] = None  # Note duration in seconds
+    
+    def get_frequency(self) -> float:
+        """Convert MIDI pitch to frequency in Hz"""
+        # A4 (MIDI 69) = 440 Hz
+        return 440.0 * (2.0 ** ((self.pitch - 69) / 12.0))
+    
+    def get_note_name(self) -> str:
+        """Convert MIDI pitch to note name"""
+        note_names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+        octave = (self.pitch // 12) - 1
+        note = note_names[self.pitch % 12]
+        return f"{note}{octave}"
+    
+    def __str__(self) -> str:
+        """String representation of the note"""
+        duration_str = f", {self.duration:.3f}s" if self.duration else ""
+        return f"Note({self.get_note_name()}, vel={self.velocity}{duration_str})"
+
+
+class NoteProcessor:
+    """
+    Processes MIDI events and converts them to musical note data
+    
+    This class handles:
+    - Converting MIDI note on/off events to note objects
+    - Calculating note durations
+    - Filtering and cleaning MIDI data
+    - Real-time note event processing
+    """
+    
+    def __init__(self):
+        """Initialize note processor"""
+        self.logger = get_logger()
+        self.active_notes = {}  # Track note on events: {pitch: (velocity, timestamp)}
+        self.completed_notes = []  # List of completed MIDINote objects
+        self.note_callbacks = []  # Callbacks for real-time note events
+        self.session_start_time = None
+        self.logger.info("Note Processor initialized for real-time processing")
+    
+    def start_session(self) -> None:
+        """Start a new recording session"""
+        self.session_start_time = time.time()
+        self.active_notes.clear()
+        self.completed_notes.clear()
+        self.logger.info("Started new MIDI recording session")
+    
+    def stop_session(self) -> List[MIDINote]:
+        """
+        Stop the current session and finalize all notes
+        
+        Returns:
+            List[MIDINote]: All recorded notes from the session
+        """
+        if self.session_start_time is None:
+            self.logger.warning("No active session to stop")
+            return []
+        
+        # Finalize any remaining active notes
+        current_time = time.time()
+        for pitch, (velocity, start_time) in self.active_notes.items():
+            duration = current_time - start_time
+            note = MIDINote(
+                pitch=pitch,
+                velocity=velocity,
+                timestamp=start_time - self.session_start_time,
+                duration=duration
+            )
+            self.completed_notes.append(note)
+            self.logger.debug(f"Finalized note on session end: {note}")
+        
+        self.active_notes.clear()
+        notes = self.completed_notes.copy()
+        self.session_start_time = None
+        
+        self.logger.info(f"Session ended. Recorded {len(notes)} notes")
+        return notes
+    
+    def process_midi_event(self, message: Tuple, timestamp: float) -> Optional[MIDINote]:
+        """
+        Process a raw MIDI message
+        
+        Args:
+            message: Raw MIDI message tuple (status, data1, data2)
+            timestamp: Message timestamp
+            
+        Returns:
+            MIDINote: Completed note object or None
+        """
+        if self.session_start_time is None:
+            # Auto-start session on first note
+            self.start_session()
+        
+        try:
+            if len(message) < 2:
+                return None
+            
+            status_byte = message[0]
+            
+            # Extract channel and message type
+            message_type = status_byte & 0xF0
+            channel = status_byte & 0x0F
+            
+            # Handle Note On messages (0x90)
+            if message_type == 0x90 and len(message) >= 3:
+                pitch = message[1]
+                velocity = message[2]
+                
+                # Velocity 0 is treated as Note Off
+                if velocity == 0:
+                    return self._handle_note_off(pitch, timestamp)
+                else:
+                    return self._handle_note_on(pitch, velocity, timestamp)
+            
+            # Handle Note Off messages (0x80)
+            elif message_type == 0x80 and len(message) >= 3:
+                pitch = message[1]
+                return self._handle_note_off(pitch, timestamp)
+            
+            # Handle other MIDI messages (Control Change, etc.)
+            elif message_type == 0xB0:
+                # Control Change - log but don't process
+                controller = message[1] if len(message) > 1 else 0
+                value = message[2] if len(message) > 2 else 0
+                self.logger.debug(f"Control Change: controller={controller}, value={value}")
+            
+            return None
+            
+        except Exception as e:
+            self.logger.error(f"Error processing MIDI event {message}: {e}")
+            return None
+    
+    def _handle_note_on(self, pitch: int, velocity: int, timestamp: float) -> None:
+        """Handle MIDI Note On event"""
+        # If note is already active, treat as new note (re-trigger)
+        if pitch in self.active_notes:
+            self.logger.debug(f"Re-triggering active note: {pitch}")
+            # Finalize the previous note
+            old_velocity, old_timestamp = self.active_notes[pitch]
+            duration = timestamp - old_timestamp
+            completed_note = MIDINote(
+                pitch=pitch,
+                velocity=old_velocity,
+                timestamp=old_timestamp - self.session_start_time,
+                duration=duration
+            )
+            self.completed_notes.append(completed_note)
+            self._notify_note_completed(completed_note)
+        
+        # Start new note
+        self.active_notes[pitch] = (velocity, timestamp)
+        
+        # Create note-on event for real-time feedback
+        note_on = MIDINote(
+            pitch=pitch,
+            velocity=velocity,
+            timestamp=timestamp - self.session_start_time,
+            duration=None  # Duration unknown yet
+        )
+        
+        self.logger.debug(f"Note ON: {note_on}")
+        self._notify_note_started(note_on)
+    
+    def _handle_note_off(self, pitch: int, timestamp: float) -> Optional[MIDINote]:
+        """Handle MIDI Note Off event"""
+        if pitch not in self.active_notes:
+            self.logger.debug(f"Note OFF for inactive note: {pitch}")
+            return None
+        
+        # Calculate note duration
+        velocity, start_timestamp = self.active_notes[pitch]
+        duration = timestamp - start_timestamp
+        
+        # Create completed note
+        completed_note = MIDINote(
+            pitch=pitch,
+            velocity=velocity,
+            timestamp=start_timestamp - self.session_start_time,
+            duration=duration
+        )
+        
+        # Remove from active notes
+        del self.active_notes[pitch]
+        
+        # Add to completed notes
+        self.completed_notes.append(completed_note)
+        
+        self.logger.debug(f"Note OFF: {completed_note}")
+        self._notify_note_completed(completed_note)
+        
+        return completed_note
+    
+    def add_note_callback(self, callback) -> None:
+        """
+        Add callback for real-time note events
+        
+        Args:
+            callback: Function(event_type, note) where event_type is 'start' or 'complete'
+        """
+        self.note_callbacks.append(callback)
+        self.logger.debug("Added note event callback")
+    
+    def remove_note_callback(self, callback) -> None:
+        """Remove note event callback"""
+        if callback in self.note_callbacks:
+            self.note_callbacks.remove(callback)
+            self.logger.debug("Removed note event callback")
+    
+    def _notify_note_started(self, note: MIDINote) -> None:
+        """Notify callbacks about note start"""
+        for callback in self.note_callbacks:
+            try:
+                callback('start', note)
+            except Exception as e:
+                self.logger.error(f"Error in note start callback: {e}")
+    
+    def _notify_note_completed(self, note: MIDINote) -> None:
+        """Notify callbacks about completed note"""
+        for callback in self.note_callbacks:
+            try:
+                callback('complete', note)
+            except Exception as e:
+                self.logger.error(f"Error in note complete callback: {e}")
+    
+    def get_completed_notes(self) -> List[MIDINote]:
+        """Get all completed notes from current session"""
+        return self.completed_notes.copy()
+    
+    def clear_session(self) -> None:
+        """Clear current session data"""
+        self.active_notes.clear()
+        self.completed_notes.clear()
+        self.session_start_time = None
+        self.logger.info("Cleared MIDI session data")
+    
+    def finalize_notes(self) -> List[MIDINote]:
+        """
+        Finalize any active notes and return complete note list
+        Legacy method for compatibility
+        
+        Returns:
+            List[MIDINote]: List of completed notes
+        """
+        if self.session_start_time is not None:
+            return self.stop_session()
+        return self.completed_notes.copy()

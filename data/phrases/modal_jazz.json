@@ -1,0 +1,1041 @@
+{
+  "style": "modal_jazz",
+  "description": "Modal jazz phrase library focusing on Dorian mode patterns",
+  "key_signatures": ["D_dorian"],
+  "phrases": [
+    {
+      "id": "dorian_001",
+      "name": "Long D Root",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "whole", "velocity": 80}
+      ],
+      "description": "Single long D root note"
+    },
+    {
+      "id": "dorian_002",
+      "name": "D to E Step",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "half", "velocity": 80},
+        {"pitch": "E4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Simple step from D to E"
+    },
+    {
+      "id": "dorian_003",
+      "name": "D to F Third",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "half", "velocity": 80},
+        {"pitch": "F4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Small interval - third from D to F"
+    },
+    {
+      "id": "dorian_004",
+      "name": "Two Long Notes",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "half", "velocity": 80},
+        {"pitch": "D4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Two long notes with minimal transition"
+    },
+    {
+      "id": "dorian_005",
+      "name": "Long G Note",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "whole", "velocity": 80}
+      ],
+      "description": "Single long G note"
+    },
+    {
+      "id": "dorian_026",
+      "name": "Long A Note",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "whole", "velocity": 80}
+      ],
+      "description": "Single long A note"
+    },
+    {
+      "id": "dorian_027",
+      "name": "E to F Step",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "half", "velocity": 80},
+        {"pitch": "F4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Simple step from E to F"
+    },
+    {
+      "id": "dorian_028",
+      "name": "F to G Step",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "half", "velocity": 80},
+        {"pitch": "G4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Simple step from F to G"
+    },
+    {
+      "id": "dorian_029",
+      "name": "G to A Step",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "half", "velocity": 80},
+        {"pitch": "A4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Simple step from G to A"
+    },
+    {
+      "id": "dorian_030",
+      "name": "Long F Note",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "whole", "velocity": 80}
+      ],
+      "description": "Single long F note"
+    },
+    {
+      "id": "dorian_031",
+      "name": "E to G Third",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "half", "velocity": 80},
+        {"pitch": "G4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Third interval from E to G"
+    },
+    {
+      "id": "dorian_032",
+      "name": "A to F Down",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "half", "velocity": 80},
+        {"pitch": "F4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Descending third from A to F"
+    },
+    {
+      "id": "dorian_033",
+      "name": "G to E Down",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "half", "velocity": 80},
+        {"pitch": "E4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Descending third from G to E"
+    },
+    {
+      "id": "dorian_034",
+      "name": "F to A Up",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "half", "velocity": 80},
+        {"pitch": "A4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Ascending third from F to A"
+    },
+    {
+      "id": "dorian_035",
+      "name": "Long E Note",
+      "difficulty": 1,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "whole", "velocity": 80}
+      ],
+      "description": "Single long E note"
+    },
+    {
+      "id": "dorian_006",
+      "name": "Simple Dorian Ascent",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Basic four-note ascending pattern"
+    },
+    {
+      "id": "dorian_007",
+      "name": "Step Pattern",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Simple alternating step pattern"
+    },
+    {
+      "id": "dorian_008",
+      "name": "Three Note Scale",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Three-note scale with basic rhythm"
+    },
+    {
+      "id": "dorian_009",
+      "name": "Up and Down",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Simple up and down motion"
+    },
+    {
+      "id": "dorian_010",
+      "name": "Root and Third",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Root and third interval pattern"
+    },
+    {
+      "id": "dorian_036",
+      "name": "Descending Four Notes",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Basic four-note descending pattern"
+    },
+    {
+      "id": "dorian_037",
+      "name": "Root to Fifth",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "quarter", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Root and fifth interval pattern"
+    },
+    {
+      "id": "dorian_038",
+      "name": "E F G Pattern",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Three-note ascending with long ending"
+    },
+    {
+      "id": "dorian_039",
+      "name": "G F E D Descent",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Four-note stepwise descent"
+    },
+    {
+      "id": "dorian_040",
+      "name": "Alternating Thirds",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Alternating third intervals"
+    },
+    {
+      "id": "dorian_041",
+      "name": "Low to High",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Low to high with sustained ending"
+    },
+    {
+      "id": "dorian_042",
+      "name": "Middle Range",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Movement in middle range"
+    },
+    {
+      "id": "dorian_043",
+      "name": "Bounce Pattern",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Bouncing interval pattern"
+    },
+    {
+      "id": "dorian_044",
+      "name": "Scale Fragment",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "half", "velocity": 80}
+      ],
+      "description": "Upper scale fragment"
+    },
+    {
+      "id": "dorian_045",
+      "name": "Return Home",
+      "difficulty": 2,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Journey back to root note"
+    },
+    {
+      "id": "dorian_011",
+      "name": "Eighth Note Steps",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Mix of eighth and quarter notes"
+    },
+    {
+      "id": "dorian_012",
+      "name": "Five Note Scale",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80}
+      ],
+      "description": "Five-note scale with varied rhythm"
+    },
+    {
+      "id": "dorian_013",
+      "name": "Skip and Step",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Pattern with skip and step motion"
+    },
+    {
+      "id": "dorian_014",
+      "name": "Moderate Leap",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Moderate leap with stepwise return"
+    },
+    {
+      "id": "dorian_015",
+      "name": "Rhythmic Variation",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Simple rhythmic variation"
+    },
+    {
+      "id": "dorian_046",
+      "name": "Quick Start",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Quick eighth note opening"
+    },
+    {
+      "id": "dorian_047",
+      "name": "Stepwise Eighths",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Stepwise motion in eighth notes"
+    },
+    {
+      "id": "dorian_048",
+      "name": "Jump and Return",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Leap up and stepwise return"
+    },
+    {
+      "id": "dorian_049",
+      "name": "Mixed Rhythm Flow",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Mixed rhythms with smooth flow"
+    },
+    {
+      "id": "dorian_050",
+      "name": "Six Note Phrase",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80}
+      ],
+      "description": "Six-note phrase with arch shape"
+    },
+    {
+      "id": "dorian_051",
+      "name": "Ascending Eighths",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Ascending eighth notes with resolution"
+    },
+    {
+      "id": "dorian_052",
+      "name": "Interval Pattern",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Fourth and third interval pattern"
+    },
+    {
+      "id": "dorian_053",
+      "name": "Descending Curve",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "D4", "duration": "eighth", "velocity": 80}
+      ],
+      "description": "Descending curve with acceleration"
+    },
+    {
+      "id": "dorian_054",
+      "name": "Modal Color",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Highlighting modal character"
+    },
+    {
+      "id": "dorian_055",
+      "name": "Rhythmic Shift",
+      "difficulty": 3,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Shifting rhythmic emphasis"
+    },
+    {
+      "id": "dorian_016",
+      "name": "Dotted Quarter Pattern",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "dotted_quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Dotted quarter note rhythm"
+    },
+    {
+      "id": "dorian_017",
+      "name": "Syncopated Entry",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "rest", "duration": "eighth", "velocity": 0},
+        {"pitch": "D4", "duration": "eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Basic syncopation with rest"
+    },
+    {
+      "id": "dorian_018",
+      "name": "Mixed Rhythm",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "dotted_quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80}
+      ],
+      "description": "Mixed rhythms with dotted notes"
+    },
+    {
+      "id": "dorian_019",
+      "name": "Off Beat Pattern",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "rest", "duration": "quarter", "velocity": 0},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Off-beat entry pattern"
+    },
+    {
+      "id": "dorian_020",
+      "name": "Dotted Eighth Feel",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Dotted eighth note feel"
+    },
+    {
+      "id": "dorian_056",
+      "name": "Swing Feel Entry",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "rest", "duration": "eighth", "velocity": 0},
+        {"pitch": "A4", "duration": "dotted_eighth", "velocity": 85},
+        {"pitch": "G4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Swing feel with syncopated entry"
+    },
+    {
+      "id": "dorian_057",
+      "name": "Double Dotted",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "dotted_quarter", "velocity": 80},
+        {"pitch": "E4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "D4", "duration": "sixteenth", "velocity": 80}
+      ],
+      "description": "Multiple dotted rhythms"
+    },
+    {
+      "id": "dorian_058",
+      "name": "Sixteenth Patterns",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "F4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "G4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Sixteenth note ornaments"
+    },
+    {
+      "id": "dorian_059",
+      "name": "Rest Displacement",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "rest", "duration": "sixteenth", "velocity": 0},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Rest creates rhythmic displacement"
+    },
+    {
+      "id": "dorian_060",
+      "name": "Long Syncopation",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "rest", "duration": "dotted_quarter", "velocity": 0},
+        {"pitch": "A4", "duration": "eighth", "velocity": 85},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80}
+      ],
+      "description": "Extended rest with late entry"
+    },
+    {
+      "id": "dorian_061",
+      "name": "Tied Rhythm",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "dotted_quarter", "velocity": 80},
+        {"pitch": "rest", "duration": "sixteenth", "velocity": 0},
+        {"pitch": "E4", "duration": "dotted_eighth", "velocity": 80}
+      ],
+      "description": "Complex tied and dotted rhythms"
+    },
+    {
+      "id": "dorian_062",
+      "name": "Anticipation",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "quarter", "velocity": 80},
+        {"pitch": "G4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "rest", "duration": "eighth", "velocity": 0},
+        {"pitch": "D4", "duration": "eighth", "velocity": 80}
+      ],
+      "description": "Anticipation and delayed resolution"
+    },
+    {
+      "id": "dorian_063",
+      "name": "Compound Rhythm",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "rest", "duration": "sixteenth", "velocity": 0},
+        {"pitch": "D4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "sixteenth", "velocity": 85},
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Compound rhythmic pattern"
+    },
+    {
+      "id": "dorian_064",
+      "name": "Metric Modulation",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "dotted_quarter", "velocity": 85},
+        {"pitch": "F4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "D4", "duration": "eighth", "velocity": 80}
+      ],
+      "description": "Feeling of changed meter"
+    },
+    {
+      "id": "dorian_065",
+      "name": "Polyrhythmic Feel",
+      "difficulty": 4,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "eighth", "velocity": 80},
+        {"pitch": "rest", "duration": "dotted_eighth", "velocity": 0},
+        {"pitch": "F4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "A4", "duration": "dotted_quarter", "velocity": 85}
+      ],
+      "description": "Cross-rhythmic patterns"
+    },
+    {
+      "id": "dorian_021",
+      "name": "Triplet Pattern",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "eighth_triplet", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth_triplet", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth_triplet", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Eighth note triplet pattern"
+    },
+    {
+      "id": "dorian_022",
+      "name": "Chromatic Approach",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "Eb4", "duration": "eighth", "velocity": 75},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Chromatic approach note"
+    },
+    {
+      "id": "dorian_023",
+      "name": "Wide Interval Leap",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "quarter", "velocity": 80},
+        {"pitch": "Bb4", "duration": "eighth", "velocity": 85},
+        {"pitch": "A4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Wide interval leap with stepwise return"
+    },
+    {
+      "id": "dorian_024",
+      "name": "Complex Contour",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "eighth_triplet", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth_triplet", "velocity": 80},
+        {"pitch": "F4", "duration": "eighth_triplet", "velocity": 80},
+        {"pitch": "Bb4", "duration": "eighth", "velocity": 85},
+        {"pitch": "E4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Complex melodic contour with triplets"
+    },
+    {
+      "id": "dorian_025",
+      "name": "Advanced Jazz Line",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "eighth", "velocity": 85},
+        {"pitch": "G4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "Gb4", "duration": "sixteenth", "velocity": 75},
+        {"pitch": "F4", "duration": "eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "eighth", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Advanced jazz line with chromaticism"
+    },
+    {
+      "id": "dorian_066",
+      "name": "Chromatic Approach",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F#4", "duration": "eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "Ab4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "triplet_eighth", "velocity": 85},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Chromatic approach tones with triplets"
+    },
+    {
+      "id": "dorian_067",
+      "name": "Extended Triplet Run",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "E4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "triplet_eighth", "velocity": 85},
+        {"pitch": "Bb4", "duration": "triplet_eighth", "velocity": 85}
+      ],
+      "description": "Extended triplet scalar passage"
+    },
+    {
+      "id": "dorian_068",
+      "name": "Wide Interval Jazz",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "dotted_eighth", "velocity": 85},
+        {"pitch": "D4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "C5", "duration": "triplet_quarter", "velocity": 90},
+        {"pitch": "F4", "duration": "triplet_quarter", "velocity": 80}
+      ],
+      "description": "Wide intervals with complex rhythms"
+    },
+    {
+      "id": "dorian_069",
+      "name": "Tritone Substitution",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "G4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "Db4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "triplet_eighth", "velocity": 85},
+        {"pitch": "Eb4", "duration": "eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Tritone relationships in melody"
+    },
+    {
+      "id": "dorian_070",
+      "name": "Bebop Enclosure",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "Eb4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "F#4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "dotted_quarter", "velocity": 80},
+        {"pitch": "A4", "duration": "eighth", "velocity": 85}
+      ],
+      "description": "Chromatic enclosure of target notes"
+    },
+    {
+      "id": "dorian_071",
+      "name": "Complex Polyrhythm",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "D4", "duration": "triplet_quarter", "velocity": 80},
+        {"pitch": "rest", "duration": "triplet_eighth", "velocity": 0},
+        {"pitch": "Bb4", "duration": "triplet_eighth", "velocity": 85},
+        {"pitch": "F4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "A4", "duration": "sixteenth", "velocity": 85}
+      ],
+      "description": "Complex cross-rhythmic patterns"
+    },
+    {
+      "id": "dorian_072",
+      "name": "Augmented Intervals",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "F4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "B4", "duration": "triplet_eighth", "velocity": 85},
+        {"pitch": "Eb4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "G#4", "duration": "quarter", "velocity": 85},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Augmented intervals and tensions"
+    },
+    {
+      "id": "dorian_073",
+      "name": "Quintuplet Motion",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "A4", "duration": "quintuplet", "velocity": 85},
+        {"pitch": "F4", "duration": "quintuplet", "velocity": 80},
+        {"pitch": "Bb4", "duration": "quintuplet", "velocity": 85},
+        {"pitch": "G4", "duration": "quintuplet", "velocity": 80},
+        {"pitch": "D4", "duration": "quintuplet", "velocity": 80}
+      ],
+      "description": "Five against four rhythm"
+    },
+    {
+      "id": "dorian_074",
+      "name": "Motivic Development",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "E4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "F4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "Db4", "duration": "triplet_eighth", "velocity": 80},
+        {"pitch": "C5", "duration": "triplet_quarter", "velocity": 90},
+        {"pitch": "Ab4", "duration": "triplet_quarter", "velocity": 85}
+      ],
+      "description": "Advanced motivic transformation"
+    },
+    {
+      "id": "dorian_075",
+      "name": "Jazz Vocabulary",
+      "difficulty": 5,
+      "key": "D_dorian",
+      "time_signature": [4, 4],
+      "notes": [
+        {"pitch": "rest", "duration": "triplet_eighth", "velocity": 0},
+        {"pitch": "Bb4", "duration": "triplet_eighth", "velocity": 85},
+        {"pitch": "A4", "duration": "triplet_eighth", "velocity": 85},
+        {"pitch": "F#4", "duration": "dotted_eighth", "velocity": 80},
+        {"pitch": "G4", "duration": "sixteenth", "velocity": 80},
+        {"pitch": "D4", "duration": "quarter", "velocity": 80}
+      ],
+      "description": "Advanced jazz melodic vocabulary"
+    }
+  ]
+}
